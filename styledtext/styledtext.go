@@ -6,12 +6,12 @@ import (
 	"image/color"
 	"unicode/utf8"
 
-	"gioui.org/font"
-	"gioui.org/layout"
-	"gioui.org/op"
-	"gioui.org/op/paint"
-	"gioui.org/text"
-	"gioui.org/unit"
+	"github.com/utopiagio/gio/font"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/op/paint"
+	"github.com/utopiagio/gio/text"
+	"github.com/utopiagio/gio/unit"
 	"golang.org/x/image/math/fixed"
 )
 

@@ -14,9 +14,9 @@ import (
 	"regexp"
 	"strings"
 
-	"gioui.org/font"
-	"gioui.org/unit"
-	"gioui.org/x/richtext"
+	"github.com/utopiagio/gio/font"
+	"github.com/utopiagio/gio/unit"
+	"github.com/utopiagio/gio-x/richtext"
 
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/ast"

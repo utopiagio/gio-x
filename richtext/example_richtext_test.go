@@ -4,16 +4,16 @@ import (
 	"image/color"
 	"log"
 
-	"gioui.org/app"
-	"gioui.org/font/gofont"
-	"gioui.org/gesture"
-	"gioui.org/io/system"
-	"gioui.org/layout"
-	"gioui.org/op"
-	"gioui.org/text"
-	"gioui.org/unit"
-	"gioui.org/widget/material"
-	"gioui.org/x/richtext"
+	"github.com/utopiagio/gio/app"
+	"github.com/utopiagio/gio/font/gofont"
+	"github.com/utopiagio/gio/gesture"
+	"github.com/utopiagio/gio/io/system"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/text"
+	"github.com/utopiagio/gio/unit"
+	"github.com/utopiagio/gio/widget/material"
+	"github.com/utopiagio/gio-x/styledtext"
 )
 
 func Example() {

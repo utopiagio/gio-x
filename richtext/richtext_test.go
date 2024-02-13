@@ -5,13 +5,13 @@ import (
 	"testing"
 	"time"
 
-	"gioui.org/font/gofont"
-	"gioui.org/io/router"
-	"gioui.org/layout"
-	"gioui.org/op"
-	"gioui.org/text"
-	"gioui.org/unit"
-	"gioui.org/widget/material"
+	"github.com/utopiagio/gio/font/gofont"
+	"github.com/utopiagio/gio/io/router"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/text"
+	"github.com/utopiagio/gio/unit"
+	"github.com/utopiagio/gio/widget/material"
 )
 
 // TestNilInteractiveText ensures that it is safe to lay out
