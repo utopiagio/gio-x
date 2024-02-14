@@ -221,7 +221,7 @@ func (t TextStyle) Layout(gtx layout.Context) layout.Dimensions {
 			Color:   st.Color,
 			Content: st.Content,
 		}
-		strings.ReplaceAll(styles[i].Content, "\r", "")
+		styles[i] = strings.TrimRight(styles[i], "\r\n")
 	}
 	t.State.resize(numInteractive)
 
