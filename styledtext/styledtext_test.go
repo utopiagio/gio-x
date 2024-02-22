@@ -4,13 +4,13 @@ import (
 	"image"
 	"testing"
 
-	"github.com/utopiagio/gio/font"
-	"github.com/utopiagio/gio/font/gofont"
-	"github.com/utopiagio/gio/io/system"
-	"github.com/utopiagio/gio/layout"
-	"github.com/utopiagio/gio/op"
-	"github.com/utopiagio/gio/text"
-	"github.com/utopiagio/gio/unit"
+	"github.com/utopiagio/gioui/gio/app"
+	"github.com/utopiagio/gioui/gio/font"
+	"github.com/utopiagio/gioui/gio/font/gofont"
+	"github.com/utopiagio/gioui/gio/layout"
+	"github.com/utopiagio/gioui/gio/op"
+	"github.com/utopiagio/gioui/gio/text"
+	"github.com/utopiagio/gioui/gio/unit"
 )
 
 // TestStyledtextRegressions checks for known regressions that have made styledtext hang in the
@@ -73,7 +73,7 @@ func TestStyledtextRegressions(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			txt := Text(text.NewShaper(text.NoSystemFonts(), text.WithCollection(gofont.Collection())), tc.spans...)
 			var ops op.Ops
-			gtx := layout.NewContext(&ops, system.FrameEvent{
+			gtx := app.NewContext(&ops, app.FrameEvent{
 				Metric: unit.Metric{PxPerDp: 1, PxPerSp: 1},
 				Size:   tc.space,
 			})
@@ -85,7 +85,7 @@ func TestStyledtextRegressions(t *testing.T) {
 
 // TestStyledtextNewlines ensures that newlines create appropriate gaps between text.
 func TestStyledtextNewlines(t *testing.T) {
-	gtx := layout.NewContext(new(op.Ops), system.FrameEvent{
+	gtx := app.NewContext(new(op.Ops), app.FrameEvent{
 		Metric: unit.Metric{PxPerDp: 1, PxPerSp: 1},
 		Size:   image.Point{X: 40, Y: 1000},
 	})

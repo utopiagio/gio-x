@@ -4,16 +4,14 @@ import (
 	"image/color"
 	"log"
 
-	"github.com/utopiagio/gio/app"
-	"github.com/utopiagio/gio/font/gofont"
-	"github.com/utopiagio/gio/gesture"
-	"github.com/utopiagio/gio/io/system"
-	"github.com/utopiagio/gio/layout"
-	"github.com/utopiagio/gio/op"
-	"github.com/utopiagio/gio/text"
-	"github.com/utopiagio/gio/unit"
-	"github.com/utopiagio/gio/widget/material"
-	"github.com/utopiagio/gio-x/styledtext"
+	"github.com/utopiagio/gioui/gio/app"
+	"github.com/utopiagio/gioui/gio/font/gofont"
+	"github.com/utopiagio/gioui/gio/gesture"
+	"github.com/utopiagio/gioui/gio/op"
+	"github.com/utopiagio/gioui/gio/text"
+	"github.com/utopiagio/gioui/gio/unit"
+	"github.com/utopiagio/gioui/gio/widget/material"
+	"github.com/utopiagio/gioui/gio-x/richtext"
 )
 
 func Example() {
@@ -40,10 +38,10 @@ func Example() {
 		for {
 			e := w.NextEvent()
 			switch e := e.(type) {
-			case system.DestroyEvent:
+			case app.DestroyEvent:
 				panic(e.Err)
-			case system.FrameEvent:
-				gtx := layout.NewContext(&ops, e)
+			case app.FrameEvent:
+				gtx := app.NewContext(&ops, e)
 
 				// define the text that you want to present. This can be persisted
 				// across frames, recomputed every frame, or modified in any way between
@@ -83,23 +81,25 @@ func Example() {
 				}
 
 				// process any interactions with the text since the last frame.
-				for span, events := state.Update(gtx); span != nil; span, events = state.Update(gtx) {
-					for _, event := range events {
-						content, _ := span.Content()
-						switch event.Type {
-						case richtext.Click:
-							log.Println(event.ClickData.Kind)
-							if event.ClickData.Kind == gesture.KindClick {
-								interactColorIndex++
-								op.InvalidateOp{}.Add(gtx.Ops)
-							}
-						case richtext.Hover:
-							w.Option(app.Title("Hovered: " + content))
-						case richtext.Unhover:
-							w.Option(app.Title("Unhovered: " + content))
-						case richtext.LongPress:
-							w.Option(app.Title("Long-pressed: " + content))
+				for {
+					span, event, ok := state.Update(gtx)
+					if !ok {
+						break
+					}
+					content, _ := span.Content()
+					switch event.Type {
+					case richtext.Click:
+						log.Println(event.ClickData.Kind)
+						if event.ClickData.Kind == gesture.KindClick {
+							interactColorIndex++
+							gtx.Execute(op.InvalidateCmd{})
 						}
+					case richtext.Hover:
+						w.Option(app.Title("Hovered: " + content))
+					case richtext.Unhover:
+						w.Option(app.Title("Unhovered: " + content))
+					case richtext.LongPress:
+						w.Option(app.Title("Long-pressed: " + content))
 					}
 				}
 

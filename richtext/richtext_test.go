@@ -5,13 +5,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/utopiagio/gio/font/gofont"
-	"github.com/utopiagio/gio/io/router"
-	"github.com/utopiagio/gio/layout"
-	"github.com/utopiagio/gio/op"
-	"github.com/utopiagio/gio/text"
-	"github.com/utopiagio/gio/unit"
-	"github.com/utopiagio/gio/widget/material"
+	"github.com/utopiagio/gioui/gio/font/gofont"
+	"github.com/utopiagio/gioui/gio/io/input"
+	"github.com/utopiagio/gioui/gio/layout"
+	"github.com/utopiagio/gioui/gio/op"
+	"github.com/utopiagio/gioui/gio/text"
+	"github.com/utopiagio/gioui/gio/unit"
+	"github.com/utopiagio/gioui/gio/widget/material"
 )
 
 // TestNilInteractiveText ensures that it is safe to lay out
@@ -37,9 +37,9 @@ func TestNilInteractiveText(t *testing.T) {
 			PxPerDp: 1,
 			PxPerSp: 1,
 		},
-		Queue: &router.Router{},
-		Now:   time.Now(),
-		Ops:   &ops,
+		Source: input.Source{},
+		Now:    time.Now(),
+		Ops:    &ops,
 	}
 
 	Text(nil, th.Shaper, spans...).Layout(gtx)
