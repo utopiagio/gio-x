@@ -3,11 +3,11 @@ package component
 import (
 	"image"
 
-	"github.com/utopiagio/gioui/gio/gesture"
-	"github.com/utopiagio/gioui/gio/io/pointer"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/op/clip"
+	"github.com/utopiagio/gio/gesture"
+	"github.com/utopiagio/gio/io/pointer"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/op/clip"
 )
 
 // Resize provides a draggable handle in between two widgets for resizing their area.

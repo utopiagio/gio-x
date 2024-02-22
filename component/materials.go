@@ -4,9 +4,9 @@ import (
 	"image"
 	"image/color"
 
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op/clip"
-	"github.com/utopiagio/gioui/gio/op/paint"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op/clip"
+	"github.com/utopiagio/gio/op/paint"
 )
 
 type (

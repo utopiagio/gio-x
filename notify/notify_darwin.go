@@ -4,7 +4,7 @@
 package notify
 
 import (
-	"github.com/utopiagio/gioui/gio-x/notify/macos"
+	"github.com/utopiagio/gio-x/notify/macos"
 )
 
 type darwinNotifier struct {

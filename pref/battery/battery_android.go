@@ -1,8 +1,8 @@
 package battery
 
 import (
-	"github.com/utopiagio/gioui/gio/app"
-	"github.com/utopiagio/gioui/gio-x/pref/internal/xjni"
+	"github.com/utopiagio/gio/app"
+	"github.com/utopiagio/gio-x/pref/internal/xjni"
 	"git.wow.st/gmp/jni"
 )
 

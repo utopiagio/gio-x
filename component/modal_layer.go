@@ -3,9 +3,9 @@ package component
 import (
 	"time"
 
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/widget/material"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/widget/material"
 )
 
 // ModalLayer is a widget drawn on top of the normal UI that can be populated

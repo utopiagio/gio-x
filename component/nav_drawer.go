@@ -5,14 +5,14 @@ import (
 	"image/color"
 	"time"
 
-	"github.com/utopiagio/gioui/gio/font"
-	"github.com/utopiagio/gioui/gio/io/event"
-	"github.com/utopiagio/gioui/gio/io/pointer"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op/clip"
-	"github.com/utopiagio/gioui/gio/unit"
-	"github.com/utopiagio/gioui/gio/widget"
-	"github.com/utopiagio/gioui/gio/widget/material"
+	"github.com/utopiagio/gio/font"
+	"github.com/utopiagio/gio/io/event"
+	"github.com/utopiagio/gio/io/pointer"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op/clip"
+	"github.com/utopiagio/gio/unit"
+	"github.com/utopiagio/gio/widget"
+	"github.com/utopiagio/gio/widget/material"
 )
 
 var (

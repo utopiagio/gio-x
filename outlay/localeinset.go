@@ -3,10 +3,10 @@ package outlay
 import (
 	"image"
 
-	"github.com/utopiagio/gioui/gio/io/system"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/unit"
+	"github.com/utopiagio/gio/io/system"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/unit"
 )
 
 // Inset adds space around a widget by decreasing its maximum

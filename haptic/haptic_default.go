@@ -3,7 +3,7 @@
 
 package haptic
 
-import "github.com/utopiagio/gioui/gio/app"
+import "github.com/utopiagio/gio/app"
 
 // Buzzer provides methods to trigger haptic feedback. On OSes other than android,
 // all methods are no-ops.

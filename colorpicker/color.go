@@ -19,14 +19,14 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/utopiagio/gioui/gio/font"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/op/clip"
-	"github.com/utopiagio/gioui/gio/op/paint"
-	"github.com/utopiagio/gioui/gio/unit"
-	"github.com/utopiagio/gioui/gio/widget"
-	"github.com/utopiagio/gioui/gio/widget/material"
+	"github.com/utopiagio/gio/font"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/op/clip"
+	"github.com/utopiagio/gio/op/paint"
+	"github.com/utopiagio/gio/unit"
+	"github.com/utopiagio/gio/widget"
+	"github.com/utopiagio/gio/widget/material"
 )
 
 // MuxState holds the state of a color multiplexer. A color multiplexer allows

@@ -19,7 +19,7 @@ void buzz() {
 import "C"
 
 import (
-	"github.com/utopiagio/gioui/gio/app"
+	"github.com/utopiagio/gio/app"
 )
 
 // Buzzer provides methods to trigger haptic feedback. On OSes other than android,

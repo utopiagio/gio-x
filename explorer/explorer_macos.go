@@ -21,8 +21,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/utopiagio/gioui/gio/app"
-	"github.com/utopiagio/gioui/gio/io/event"
+	"github.com/utopiagio/gio/app"
+	"github.com/utopiagio/gio/io/event"
 )
 
 type explorer struct {

@@ -3,7 +3,7 @@
 
 package component
 
-import "github.com/utopiagio/gioui/gio/widget/material"
+import "github.com/utopiagio/gio/widget/material"
 
 // PlatformTooltip creates a tooltip styled to the current platform
 // (desktop or mobile) by choosing based on the OS. This choice may

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/utopiagio/gioui/gio/app"
+	"github.com/utopiagio/gio/app"
 
 	"git.wow.st/gmp/jni"
 )

@@ -6,14 +6,14 @@ import (
 	"image"
 	"image/color"
 
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/op/clip"
-	"github.com/utopiagio/gioui/gio/op/paint"
-	"github.com/utopiagio/gioui/gio/unit"
-	"github.com/utopiagio/gioui/gio/widget"
-	"github.com/utopiagio/gioui/gio/widget/material"
-	"github.com/utopiagio/gioui/gio-x/outlay"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/op/clip"
+	"github.com/utopiagio/gio/op/paint"
+	"github.com/utopiagio/gio/unit"
+	"github.com/utopiagio/gio/widget"
+	"github.com/utopiagio/gio/widget/material"
+	"github.com/utopiagio/gio-x/outlay"
 )
 
 // SurfaceStyle defines the visual aspects of a material design surface

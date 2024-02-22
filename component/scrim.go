@@ -3,9 +3,9 @@ package component
 import (
 	"image/color"
 
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/widget"
-	"github.com/utopiagio/gioui/gio/widget/material"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/widget"
+	"github.com/utopiagio/gio/widget/material"
 )
 
 // Scrim implments a clickable translucent overlay. It can animate appearing

@@ -5,15 +5,15 @@ import (
 	"image/color"
 	"time"
 
-	"github.com/utopiagio/gioui/gio/font"
-	"github.com/utopiagio/gioui/gio/gesture"
-	"github.com/utopiagio/gioui/gio/io/pointer"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/op/clip"
-	"github.com/utopiagio/gioui/gio/text"
-	"github.com/utopiagio/gioui/gio/unit"
-	"github.com/utopiagio/gioui/gio-x/styledtext"
+	"github.com/utopiagio/gio/font"
+	"github.com/utopiagio/gio/gesture"
+	"github.com/utopiagio/gio/io/pointer"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/op/clip"
+	"github.com/utopiagio/gio/text"
+	"github.com/utopiagio/gio/unit"
+	"github.com/utopiagio/gio-x/styledtext"
 )
 
 // LongPressDuration is the default duration of a long press gesture.

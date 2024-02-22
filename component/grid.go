@@ -3,11 +3,11 @@ package component
 import (
 	"math"
 
-	"github.com/utopiagio/gioui/gio/io/pointer"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/widget"
-	"github.com/utopiagio/gioui/gio/widget/material"
-	"github.com/utopiagio/gioui/gio-x/outlay"
+	"github.com/utopiagio/gio/io/pointer"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/widget"
+	"github.com/utopiagio/gio/widget/material"
+	"github.com/utopiagio/gio-x/outlay"
 )
 
 // Grid holds the persistent state for a layout.List that has a

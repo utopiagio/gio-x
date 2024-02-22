@@ -6,9 +6,9 @@ package stroke
 import (
 	"math"
 
-	"github.com/utopiagio/gioui/gio/f32"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/op/clip"
+	"github.com/utopiagio/gio/f32"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/op/clip"
 	"github.com/andybalholm/stroke"
 )
 

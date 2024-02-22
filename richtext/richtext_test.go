@@ -5,13 +5,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/utopiagio/gioui/gio/font/gofont"
-	"github.com/utopiagio/gioui/gio/io/input"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/text"
-	"github.com/utopiagio/gioui/gio/unit"
-	"github.com/utopiagio/gioui/gio/widget/material"
+	"github.com/utopiagio/gio/font/gofont"
+	"github.com/utopiagio/gio/io/input"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/text"
+	"github.com/utopiagio/gio/unit"
+	"github.com/utopiagio/gio/widget/material"
 )
 
 // TestNilInteractiveText ensures that it is safe to lay out

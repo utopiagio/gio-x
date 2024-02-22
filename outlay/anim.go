@@ -3,8 +3,8 @@ package outlay
 import (
 	"time"
 
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
 )
 
 // Animation holds state for an Animation between two states that

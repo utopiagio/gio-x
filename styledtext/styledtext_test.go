@@ -4,13 +4,13 @@ import (
 	"image"
 	"testing"
 
-	"github.com/utopiagio/gioui/gio/app"
-	"github.com/utopiagio/gioui/gio/font"
-	"github.com/utopiagio/gioui/gio/font/gofont"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/text"
-	"github.com/utopiagio/gioui/gio/unit"
+	"github.com/utopiagio/gio/app"
+	"github.com/utopiagio/gio/font"
+	"github.com/utopiagio/gio/font/gofont"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/text"
+	"github.com/utopiagio/gio/unit"
 )
 
 // TestStyledtextRegressions checks for known regressions that have made styledtext hang in the

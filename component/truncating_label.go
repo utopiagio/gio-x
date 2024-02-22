@@ -1,8 +1,8 @@
 package component
 
 import (
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/widget/material"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/widget/material"
 )
 
 // TruncatingLabelStyle is a type that forces a label to

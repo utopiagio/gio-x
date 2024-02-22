@@ -4,7 +4,7 @@
 package notify
 
 import (
-	"github.com/utopiagio/gioui/gio-x/notify/android"
+	"github.com/utopiagio/gio-x/notify/android"
 )
 
 type androidNotifier struct {

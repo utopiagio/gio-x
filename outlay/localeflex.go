@@ -5,9 +5,9 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/utopiagio/gioui/gio/io/system"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
+	"github.com/utopiagio/gio/io/system"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
 )
 
 // mainConstraint returns the min and max main constraints for axis a.

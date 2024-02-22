@@ -7,12 +7,12 @@ import (
 	"math"
 	"time"
 
-	"github.com/utopiagio/gioui/gio/f32"
-	"github.com/utopiagio/gioui/gio/io/event"
-	"github.com/utopiagio/gioui/gio/io/pointer"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/op/clip"
+	"github.com/utopiagio/gio/f32"
+	"github.com/utopiagio/gio/io/event"
+	"github.com/utopiagio/gio/io/pointer"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/op/clip"
 )
 
 // ContextArea is a region of the UI that responds to certain

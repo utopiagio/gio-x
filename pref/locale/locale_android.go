@@ -1,7 +1,7 @@
 package locale
 
 import (
-	"github.com/utopiagio/gioui/gio-x/pref/internal/xjni"
+	"github.com/utopiagio/gio-x/pref/internal/xjni"
 )
 
 //go:generate javac -source 8 -target 8 -bootclasspath $ANDROID_HOME/platforms/android-29/android.jar -d $TEMP/x_locale/classes locale_android.java

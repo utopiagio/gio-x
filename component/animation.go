@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
 )
 
 // VisibilityAnimation holds the animation state for animations that transition between a

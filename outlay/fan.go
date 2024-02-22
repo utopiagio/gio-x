@@ -5,10 +5,10 @@ import (
 	"image"
 	"math"
 
-	"github.com/utopiagio/gioui/gio/f32"
-	"github.com/utopiagio/gioui/gio/layout"
-	"github.com/utopiagio/gioui/gio/op"
-	"github.com/utopiagio/gioui/gio/unit"
+	"github.com/utopiagio/gio/f32"
+	"github.com/utopiagio/gio/layout"
+	"github.com/utopiagio/gio/op"
+	"github.com/utopiagio/gio/unit"
 )
 
 type Fan struct {

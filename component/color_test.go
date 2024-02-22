@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"testing"
 
-	materials "github.com/utopiagio/gioui/gio-x/component"
+	materials "github.com/utopiagio/gio-x/component"
 )
 
 type interpolationTest struct {
