@@ -6,6 +6,7 @@ Package markdown transforms markdown text into gio richtext.
 package markdown
 
 import (
+	//"log"
 	"bytes"
 	"fmt"
 	"image/color"
@@ -148,10 +149,12 @@ func (g *gioNodeRenderer) RegisterFuncs(reg renderer.NodeRendererFuncRegisterer)
 }
 
 func (g *gioNodeRenderer) renderDocument(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderDocument................")
 	return ast.WalkContinue, nil
 }
 
 func (g *gioNodeRenderer) renderHeading(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderHeadind................")
 	n := node.(*ast.Heading)
 	if entering {
 		g.EnsureSeparationFromPrevious()
@@ -165,10 +168,13 @@ func (g *gioNodeRenderer) renderHeading(w util.BufWriter, source []byte, node as
 			sp = g.Config.H3Size
 		case 4:
 			sp = g.Config.H4Size
+			//log.Println("Heading:H4Size")
 		case 5:
 			sp = g.Config.H5Size
+			//log.Println("Heading:H5Size")
 		case 6:
 			sp = g.Config.H6Size
+			//log.Println("Heading:H6Size")
 		}
 		g.UpdateCurrentSize(sp)
 	} else {
@@ -178,24 +184,38 @@ func (g *gioNodeRenderer) renderHeading(w util.BufWriter, source []byte, node as
 }
 
 func (g *gioNodeRenderer) renderBlockquote(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderBlockQuote................")
 	return ast.WalkContinue, nil
 }
 
 func (g *gioNodeRenderer) renderCodeBlock(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderCodeBlock................")
+	n := node.(*ast.CodeBlock)
 	if entering {
 		g.EnsureSeparationFromPrevious()
 		g.Current.Font = g.Config.MonospaceFont
+		g.Current.Size = 12
+		lines := n.Lines()
+		//log.Println("GioNodeRenderer) nLines =", lines.Len())
+		for i := 0; i < lines.Len(); i++ {
+			line := lines.At(i)
+			g.Current.Content = string(line.Value(source))
+			g.CommitCurrent()
+		}
 	} else {
 		g.Current.Font = g.Config.DefaultFont
+		g.Current.Size = g.Config.DefaultSize
 	}
 	return ast.WalkContinue, nil
 }
 
 func (g *gioNodeRenderer) renderFencedCodeBlock(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderFenceCodeBlock................")
 	n := node.(*ast.FencedCodeBlock)
 	if entering {
 		g.EnsureSeparationFromPrevious()
 		g.Current.Font = g.Config.MonospaceFont
+		g.Current.Size = 12
 		lines := n.Lines()
 		for i := 0; i < lines.Len(); i++ {
 			line := lines.At(i)
@@ -204,11 +224,13 @@ func (g *gioNodeRenderer) renderFencedCodeBlock(w util.BufWriter, source []byte,
 		}
 	} else {
 		g.Current.Font = g.Config.DefaultFont
+		g.Current.Size = g.Config.DefaultSize
 	}
 	return ast.WalkContinue, nil
 }
 
 func (g *gioNodeRenderer) renderHTMLBlock(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderHTMLBlock................")
 	if entering {
 		g.EnsureSeparationFromPrevious()
 		g.Current.Font = g.Config.MonospaceFont
@@ -219,6 +241,7 @@ func (g *gioNodeRenderer) renderHTMLBlock(w util.BufWriter, source []byte, node 
 }
 
 func (g *gioNodeRenderer) renderList(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderList................")
 	n := node.(*ast.List)
 	if entering {
 		g.EnsureSeparationFromPrevious()
@@ -230,6 +253,7 @@ func (g *gioNodeRenderer) renderList(w util.BufWriter, source []byte, node ast.N
 }
 
 func (g *gioNodeRenderer) renderListItem(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderListItem................")
 	if entering {
 		if g.OrderedList {
 			g.Current.Content = fmt.Sprintf(" %d. ", g.OrderedIndex)
@@ -253,14 +277,17 @@ func (g *gioNodeRenderer) renderParagraph(w util.BufWriter, source []byte, node 
 }
 
 func (g *gioNodeRenderer) renderTextBlock(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderTextBlock................")
 	return ast.WalkContinue, nil
 }
 
 func (g *gioNodeRenderer) renderThematicBreak(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderThematicBreak................")
 	return ast.WalkContinue, nil
 }
 
 func (g *gioNodeRenderer) renderAutoLink(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderAutoLink................")
 	n := node.(*ast.AutoLink)
 	if entering {
 		url := string(n.URL(source))
@@ -276,6 +303,7 @@ func (g *gioNodeRenderer) renderAutoLink(w util.BufWriter, source []byte, node a
 }
 
 func (g *gioNodeRenderer) renderCodeSpan(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderCodeSnippet................")
 	if entering {
 		g.Current.Font = g.Config.MonospaceFont
 	} else {
@@ -285,25 +313,31 @@ func (g *gioNodeRenderer) renderCodeSpan(w util.BufWriter, source []byte, node a
 }
 
 func (g *gioNodeRenderer) renderEmphasis(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderEmphasis................")
 	n := node.(*ast.Emphasis)
 
 	if entering {
 		if n.Level == 2 {
 			g.Current.Font.Weight = font.Bold
+			//log.Println("Font:Bold")
 		} else {
 			g.Current.Font.Style = font.Italic
+			//log.Println("Font:Italic")
 		}
 	} else {
 		if n.Level == 2 {
 			g.Current.Font.Weight = font.Normal
+			//log.Println("Font:Normal")
 		} else {
 			g.Current.Font.Style = font.Regular
+			//log.Println("Font:Regular")
 		}
 	}
 	return ast.WalkContinue, nil
 }
 
 func (g *gioNodeRenderer) renderImage(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderImage................")
 	return ast.WalkContinue, nil
 }
 
@@ -312,6 +346,7 @@ func (g *gioNodeRenderer) renderImage(w util.BufWriter, source []byte, node ast.
 const MetadataURL = "url"
 
 func (g *gioNodeRenderer) renderLink(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderLink................")
 	n := node.(*ast.Link)
 	if entering {
 		g.Current.Color = g.Config.InteractiveColor
@@ -326,10 +361,24 @@ func (g *gioNodeRenderer) renderLink(w util.BufWriter, source []byte, node ast.N
 }
 
 func (g *gioNodeRenderer) renderRawHTML(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderRawHTML................")
+	if !entering {
+		return ast.WalkContinue, nil
+	}
+	n := node.(*ast.RawHTML)
+	t := []string{}
+	for i := 0; i < n.Segments.Len(); i++ {
+		segment := n.Segments.At(i)
+		t = append(t, string(segment.Value(source)))
+	}
+	content := strings.Join(t, "")
+	g.Current.Content = content
+	g.CommitCurrent()
 	return ast.WalkContinue, nil
 }
 
 func (g *gioNodeRenderer) renderText(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderText................")
 	if !entering {
 		return ast.WalkContinue, nil
 	}
@@ -343,6 +392,7 @@ func (g *gioNodeRenderer) renderText(w util.BufWriter, source []byte, node ast.N
 }
 
 func (g *gioNodeRenderer) renderString(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
+	//log.Println("GioNodeRenderer) renderString................")
 	if !entering {
 		return ast.WalkContinue, nil
 	}
@@ -398,7 +448,7 @@ func (r *Renderer) Render(src []byte) ([]richtext.SpanStyle, error) {
 		src = urlExp.ReplaceAll(src, []byte("$1[$2]($2)"))
 	}
 	if r.Config.DefaultSize == 0 {
-		r.Config.DefaultSize = 16
+		r.Config.DefaultSize = 14
 	}
 	if r.Config.H6Size == 0 {
 		r.Config.H6Size = unit.Sp(math.Round(1.2 * float64(r.Config.DefaultSize)))

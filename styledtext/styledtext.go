@@ -1,9 +1,13 @@
+// SPDX-License-Identifier: Unlicense OR MIT
+
 // Package styledtext provides rendering of text containing multiple fonts and styles.
 package styledtext
 
 import (
+	//"log"
 	"image"
 	"image/color"
+	"strings"
 	"unicode/utf8"
 
 	"github.com/utopiagio/gio/font"
@@ -71,6 +75,7 @@ type TextStyle struct {
 	Alignment  text.Alignment
 	WrapPolicy WrapPolicy
 	*text.Shaper
+	AnchorTable map[string]int
 }
 
 // Text constructs a TextStyle.
@@ -78,6 +83,7 @@ func Text(shaper *text.Shaper, styles ...SpanStyle) TextStyle {
 	return TextStyle{
 		Styles: styles,
 		Shaper: shaper,
+		AnchorTable: make(map[string]int),		// RNW added AnchorTable to TextStyle
 	}
 }
 
@@ -188,7 +194,23 @@ func (t TextStyle) Layout(gtx layout.Context, spanFn func(gtx layout.Context, id
 	for i := 0; i < len(spans); i++ {
 		// grab the next span
 		span := spans[i]
-
+		// RNW 16/03/2024 insert anchor span into TextStyle anchor table
+		// anchorTable = make(map[string]int)
+		// span = SpanStyle
+		if len(span.Content) > 3 {
+			if span.Content[:2] == "</" {
+				span.Content = ""
+			} else if span.Content[:2] == "<a" {
+				_, name, ok := strings.Cut(span.Content, "name=\"")
+				if ok {
+					name, _, ok = strings.Cut(name, "\"")
+					if ok {
+						t.AnchorTable[name] = overallSize.Y
+					}
+				}
+				span.Content = ""
+			}
+		}
 		// constrain the width of the line to the remaining space
 		maxWidth := gtx.Constraints.Max.X - lineDims.X
 

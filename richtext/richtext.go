@@ -1,7 +1,10 @@
+// SPDX-License-Identifier: Unlicense OR MIT
+
 // Package richtext provides rendering of text containing multiple fonts, styles, and levels of interactivity.
 package richtext
 
 import (
+	//"log"
 	"image/color"
 	"time"
 
@@ -216,6 +219,7 @@ type TextStyle struct {
 	Alignment  text.Alignment
 	WrapPolicy styledtext.WrapPolicy
 	*text.Shaper
+	AnchorTable map[string]int 	// RNW 19/03/24 Add AnchorTable to TextStyle
 }
 
 // Text constructs a TextStyle.
@@ -224,11 +228,12 @@ func Text(state *InteractiveText, shaper *text.Shaper, styles ...SpanStyle) Text
 		State:  state,
 		Styles: styles,
 		Shaper: shaper,
+		AnchorTable: make(map[string]int),	// RNW 19/03/24 Initialise AnchorTable as empty table
 	}
 }
 
 // Layout renders the TextStyle.
-func (t TextStyle) Layout(gtx layout.Context) layout.Dimensions {
+func (t TextStyle) Layout(gtx layout.Context) (map[string]int, layout.Dimensions) {
 	for {
 		_, _, ok := t.State.Update(gtx)
 		if !ok {
@@ -256,7 +261,7 @@ func (t TextStyle) Layout(gtx layout.Context) layout.Dimensions {
 	text := styledtext.Text(t.Shaper, styles...)
 	text.WrapPolicy = t.WrapPolicy
 	text.Alignment = t.Alignment
-	return text.Layout(gtx, func(gtx layout.Context, i int, _ layout.Dimensions) {
+	dims := text.Layout(gtx, func(gtx layout.Context, i int, _ layout.Dimensions) {
 		span := &t.Styles[i]
 		if !span.Interactive {
 			return
@@ -267,4 +272,13 @@ func (t TextStyle) Layout(gtx layout.Context) layout.Dimensions {
 		state.metadata = span.metadata
 		state.Layout(gtx)
 	})
+	// RNW 19/03/24 create anchor table and fill with page offets
+	anchorTable := make(map[string]int)
+	for name, offset := range text.AnchorTable {
+		anchorTable[name] = offset
+		//log.Println("AnchorTable[", name, "] =", offset)
+	}
+	//************************************************************************
+	// RNW 19/03/24 return anchor table along with total dimensionsof content
+	return anchorTable, dims
 }
