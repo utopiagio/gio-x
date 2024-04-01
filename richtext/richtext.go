@@ -4,7 +4,6 @@
 package richtext
 
 import (
-	//"log"
 	"image/color"
 	"time"
 
@@ -272,13 +271,13 @@ func (t TextStyle) Layout(gtx layout.Context) (map[string]int, layout.Dimensions
 		state.metadata = span.metadata
 		state.Layout(gtx)
 	})
-	// RNW 19/03/24 create anchor table and fill with page offets
+	// RNW 19/03/24 create anchor table and fill with page offsets
 	anchorTable := make(map[string]int)
 	for name, offset := range text.AnchorTable {
 		anchorTable[name] = offset
 		//log.Println("AnchorTable[", name, "] =", offset)
 	}
 	//************************************************************************
-	// RNW 19/03/24 return anchor table along with total dimensionsof content
+	// RNW 19/03/24 return anchor table along with total dimensions of content
 	return anchorTable, dims
 }
