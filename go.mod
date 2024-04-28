@@ -8,7 +8,7 @@ require (
 	github.com/andybalholm/stroke v0.0.0-20221221101821-bd29b49d73f0
 	github.com/esiqveland/notify v0.11.0
 	github.com/godbus/dbus/v5 v5.0.6
-	github.com/utopiagio/gio v0.0.7
+	github.com/utopiagio/gio v0.0.8
 	github.com/yuin/goldmark v1.4.13
 	golang.org/x/exp v0.0.0-20240318143956-a85f2c67cd81
 	golang.org/x/exp/shiny v0.0.0-20240318143956-a85f2c67cd81
